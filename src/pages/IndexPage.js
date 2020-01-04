@@ -28,7 +28,6 @@ class IndexPage extends React.Component {
         return (
             <div>
                 {this.state.isEditing ? <EditPic saveEdit={this.saveEdit} /> : <ViewPic switchToEditing={this.switchToEditing} />}
-                hello
             </div>
         )
     }

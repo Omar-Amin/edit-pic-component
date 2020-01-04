@@ -1,0 +1,32 @@
+.container{
+    position: absolute;
+    margin: auto;
+    display: grid;
+    grid-template-columns: [main] 70px [picture-start] 1100px [picture-end] 70px [container-end];
+    grid-template-rows: [main] 50px [mid] 585px [container-end];
+    height: 635px;
+    width: 1240px;
+    left: 50%; /*line 4-6 centers the inside*/
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: silver;
+}
+
+.button-style{
+    grid-row-start: main;
+    grid-row-end: mid;
+    grid-column-start: picture-end;
+    grid-column-end: container-end;
+    margin: 10px;
+    background-color: teal;
+}
+
+.image-style{
+    position: absolute;
+    max-height: 635px;
+    grid-column-start: picture-start;
+    grid-column-end: picture-end;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
