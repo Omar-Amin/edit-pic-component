@@ -24,6 +24,7 @@
 .image-style{
     position: absolute;
     max-height: 635px;
+    max-width: 1100px;
     grid-column-start: picture-start;
     grid-column-end: picture-end;
     left: 50%;
