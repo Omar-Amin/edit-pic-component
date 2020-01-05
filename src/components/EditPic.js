@@ -1,5 +1,6 @@
 import React from "react"
 import './EditPic.css';
+import EditForm from "./EditForm";
 
 class EditPic extends React.Component {
     constructor() {
@@ -36,7 +37,6 @@ class EditPic extends React.Component {
             this.setState({
                 points: points
             })
-            console.log(this.state.dimensions)
         }
     }
 
@@ -61,9 +61,12 @@ class EditPic extends React.Component {
                         alt="Item to be edited"
                         onLoad={this.onImgLoad}
                         className="image-style"
+                        draggable={false}
                         src="https://cnet3.cbsistatic.com/img/sMJz61a5p3QEOwkK6aIT3R2skgw=/2019/08/15/5dda0e7e-8042-4317-9ee8-8256b04b5dda/samsung-galaxy-note-10-plus-13.jpg"></img>
                     {points.map((point) => (
-                        <div key={point.id} style={{ position: "fixed", top: point.y, left: point.x, backgroundColor: "#fff" }}>+</div>
+                        <div key={point.id} style={{ position: "fixed", top: point.y, left: point.x, backgroundColor: "#fff", height: "10px", width: "10px" }}>
+                            <EditForm />
+                        </div>
                     ))}
                 </div>
 
