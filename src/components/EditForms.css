@@ -1,15 +1,15 @@
 .edit-container{
     position: absolute;
     width: 210px;
-    height: 210px;
+    height: 250px;
     border-radius: 5px;
     background-color: #ffffff;
     opacity: 80%;
-    top: -150%;
 }
 
 .input-title-style{
     margin-left: 3px;
+    margin-top: 5px;
     height: 21%;
     width: 95%;
     font-size: 18px;
@@ -23,7 +23,7 @@
 
 .input-description-style{
     margin-left: 3px;
-    height: 79%;
+    height: 68%;
     font-size: 14px;
     width: 95%;
     background:none;
@@ -35,3 +35,23 @@
 .edit-container:hover{
     opacity: 100%;
 }
+
+::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888; 
+    border-radius: 10px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }

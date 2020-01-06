@@ -14,8 +14,8 @@ class EditForm extends React.Component {
 
         return (
             <div className="edit-container">
-                <textarea maxLength="40" className="input-title-style" type="text" name="Title" placeholder="Title"></textarea>
-                <textarea maxLength="200" className="input-description-style" type="text" name="Description" placeholder="Description"></textarea>
+                <textarea maxLength="50" className="input-title-style" type="text" name="Title" placeholder="Title"></textarea>
+                <textarea maxLength="220" className="input-description-style" type="text" name="Description" placeholder="Description"></textarea>
             </div>
         )
     }
