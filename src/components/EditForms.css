@@ -2,29 +2,36 @@
     position: absolute;
     width: 210px;
     height: 210px;
+    border-radius: 5px;
+    background-color: #ffffff;
+    opacity: 80%;
     top: -150%;
 }
 
 .input-title-style{
+    margin-left: 3px;
     height: 21%;
-    width: 100%;
+    width: 95%;
     font-size: 18px;
-    border-radius: 4px;
-    background-color:#ffffff;
+    font-weight: bold;
+    background:none;
     border: none;
     resize: none;
     max-lines: 1;
-    transition: 0.3s all;
+    outline-style: none;
 }
 
 .input-description-style{
+    margin-left: 3px;
     height: 79%;
     font-size: 14px;
-    width: 100%;
-    border-radius: 4px;
-    background-color:#ffffff;
+    width: 95%;
+    background:none;
     border: none;
-    transition: 0.3s all;
     resize: none;
+    outline-style: none;
+}
 
+.edit-container:hover{
+    opacity: 100%;
 }
