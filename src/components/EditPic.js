@@ -30,6 +30,7 @@ class EditPic extends React.Component {
     }
 
     addPoint(e) {
+        //just to make sure that it is most definitely hitting the target (image)
         if (this.wrapperRef && this.wrapperRef.contains(e.target)) {
             const { points, dimensions } = this.state
             //right now it works in a fixed way, should be fixed

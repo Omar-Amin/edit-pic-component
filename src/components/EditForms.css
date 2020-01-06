@@ -1,0 +1,30 @@
+.edit-container{
+    position: absolute;
+    width: 210px;
+    height: 210px;
+    top: -150%;
+}
+
+.input-title-style{
+    height: 21%;
+    width: 100%;
+    font-size: 18px;
+    border-radius: 4px;
+    background-color:#ffffff;
+    border: none;
+    resize: none;
+    max-lines: 1;
+    transition: 0.3s all;
+}
+
+.input-description-style{
+    height: 79%;
+    font-size: 14px;
+    width: 100%;
+    border-radius: 4px;
+    background-color:#ffffff;
+    border: none;
+    transition: 0.3s all;
+    resize: none;
+
+}
