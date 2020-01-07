@@ -1,8 +1,91 @@
+.editform-container{
+  display: grid;
+  grid-template-columns: [main] 150px [box1] 30px [box2] 30px [main-end];
+  grid-template-rows: [main] 30px [boxes] 250px [main-end];
+  width: 210px;
+  height: 280px;
+}
+
+.check-item{
+  grid-column-start: box1;
+  grid-column-end: box2;
+  height: 28px;
+  width: 28px;
+  animation: checksout 0.2s;
+  background-color: #ffffff;
+  opacity: 80%;
+  border-radius: 6px;
+}
+
+.check-span{
+  margin-left: 6px;
+  font-size:18px;
+  color: #888;
+  opacity: 80%;
+  vertical-align: middle;
+}
+
+.close-item{
+  animation: checksout 0.2s;
+  grid-column-start: box2;
+  grid-column-end: main-end;
+  height: 28px;
+  width: 28px;
+  animation: checksout 0.2s;
+  background-color: #ffffff;
+  opacity: 80%;
+  border-radius: 6px;
+}
+
+.close-span{
+  margin-left: 6px;
+  font-size:18px;
+  color: #888;
+  opacity: 80%;
+  vertical-align: middle;
+}
+
+.check-item:hover{
+  animation: checksin 0.2s;
+  border-radius: 3px;
+  opacity: 100%;
+}
+
+.close-item:hover{
+  animation: checksin 0.2s;
+  border-radius: 3px;
+  opacity: 100%;
+}
+
+@keyframes checksin{
+  0% {
+      border-radius: 6px;
+      opacity: 80%;
+  }
+  100% {
+      border-radius: 3px;
+      opacity: 100%;
+  }
+}
+
+@keyframes checksout{
+  0% {
+    border-radius: 3px;
+    opacity: 100%;
+  }
+  100% {
+    border-radius: 6px;
+    opacity: 80%;
+  }
+}
+
 .edit-container{
-    position: absolute;
+    grid-row-start: boxes;
+    grid-row-end: main-end;
     width: 210px;
     height: 250px;
-    border-radius: 5px;
+    border-radius: 6px;
+    animation: checksout 0.2s;
     background-color: #ffffff;
     opacity: 80%;
 }
@@ -23,7 +106,7 @@
 
 .input-description-style{
     margin-left: 3px;
-    height: 68%;
+    height: 70%;
     font-size: 14px;
     width: 95%;
     background:none;
@@ -33,16 +116,18 @@
 }
 
 .edit-container:hover{
+  animation: checksin 0.2s;
+  border-radius: 3px;
     opacity: 100%;
 }
 
 ::-webkit-scrollbar {
-    width: 8px;
+    width: 6px;
   }
   
   /* Track */
   ::-webkit-scrollbar-track {
-    background: #f1f1f1; 
+    background: none; 
   }
    
   /* Handle */
