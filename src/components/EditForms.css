@@ -49,12 +49,26 @@
   animation: checksin 0.2s;
   border-radius: 3px;
   opacity: 100%;
+  cursor: pointer;
 }
 
 .close-item:hover{
   animation: checksin 0.2s;
   border-radius: 3px;
   opacity: 100%;
+  cursor: pointer;
+}
+
+.close-item:hover .close-span{
+  opacity: 100%;
+  font-weight: bold;
+  color: #000;
+}
+
+.check-item:hover .check-span{
+  opacity: 100%;
+  font-weight: bold;
+  color: #000;
 }
 
 @keyframes checksin{
