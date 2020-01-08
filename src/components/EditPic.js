@@ -13,7 +13,7 @@ class EditPic extends React.Component {
         this.addPoint = this.addPoint.bind(this)
         this.setWrapper = this.setWrapper.bind(this)
         this.onImgLoad = this.onImgLoad.bind(this)
-
+        this.deleteFromList = this.deleteFromList.bind(this)
     }
 
     componentWillMount() {
@@ -41,6 +41,12 @@ class EditPic extends React.Component {
         }
     }
 
+    deleteFromList(formID) {
+        const { points } = this.state
+        points[formID] = undefined
+        this.setState({ points: points })
+    }
+
     onImgLoad({ target: img }) {
         this.setState({
             dimensions: {
@@ -64,11 +70,15 @@ class EditPic extends React.Component {
                         className="image-style"
                         draggable={false}
                         src="https://cnet3.cbsistatic.com/img/sMJz61a5p3QEOwkK6aIT3R2skgw=/2019/08/15/5dda0e7e-8042-4317-9ee8-8256b04b5dda/samsung-galaxy-note-10-plus-13.jpg"></img>
-                    {points.map((point) => (
-                        <div key={point.id} style={{ position: "fixed", top: point.y, left: point.x }}>
-                            <EditForm editKey={point.id} />
-                        </div>
-                    ))}
+                    {points.map((point) => {
+                        if (point) {
+                            return (
+                                <div key={point.id} style={{ position: "fixed", top: point.y, left: point.x }}>
+                                    <EditForm deleteFromList={this.deleteFromList} editKey={point.id} />
+                                </div>
+                            )
+                        }
+                    })}
                 </div>
 
             </div>
