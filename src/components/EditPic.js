@@ -14,6 +14,8 @@ class EditPic extends React.Component {
         this.setWrapper = this.setWrapper.bind(this)
         this.onImgLoad = this.onImgLoad.bind(this)
         this.deleteFromList = this.deleteFromList.bind(this)
+        this.updatePointDescription = this.updatePointDescription.bind(this)
+        this.updatePointTitle = this.updatePointTitle.bind(this)
     }
 
     componentWillMount() {
@@ -34,7 +36,7 @@ class EditPic extends React.Component {
         if (this.wrapperRef && this.wrapperRef.contains(e.target)) {
             const { points, dimensions } = this.state
             //right now it works in a fixed way, should be fixed
-            points.push({ x: e.nativeEvent.offsetX + 620 - dimensions.width / 2, y: e.nativeEvent.offsetY, id: points.length })
+            points.push({ x: e.nativeEvent.offsetX + 620 - dimensions.width / 2, y: e.nativeEvent.offsetY, id: points.length, title: "", description: "" })
             this.setState({
                 points: points
             })
@@ -44,6 +46,18 @@ class EditPic extends React.Component {
     deleteFromList(formID) {
         const { points } = this.state
         points[formID] = undefined
+        this.setState({ points: points })
+    }
+
+    updatePointTitle(title, formID) {
+        const { points } = this.state
+        points[formID].title = title
+        this.setState({ points: points })
+    }
+
+    updatePointDescription(description, formID) {
+        const { points } = this.state
+        points[formID].description = description
         this.setState({ points: points })
     }
 
@@ -74,7 +88,11 @@ class EditPic extends React.Component {
                         if (point) {
                             return (
                                 <div key={point.id} style={{ position: "fixed", top: point.y, left: point.x }}>
-                                    <EditForm deleteFromList={this.deleteFromList} editKey={point.id} />
+                                    <EditForm
+                                        deleteFromList={this.deleteFromList}
+                                        updatePointDescription={this.updatePointDescription}
+                                        updatePointTitle={this.updatePointTitle}
+                                        editKey={point.id} />
                                 </div>
                             )
                         }

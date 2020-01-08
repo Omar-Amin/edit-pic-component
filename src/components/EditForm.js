@@ -28,11 +28,15 @@ class EditForm extends React.Component {
     }
 
     storeTitle(e) {
-        this.setState({ title: e.target.value })
+        const title = e.target.value
+        this.setState({ title: title })
+        this.props.updatePointTitle(title, this.state.editKey)
     }
 
     storeDescription(e) {
-        this.setState({ description: e.target.value })
+        const description = e.target.value
+        this.setState({ description: description })
+        this.props.updatePointDescription(description, this.state.editKey)
     }
 
     closeForm() {
