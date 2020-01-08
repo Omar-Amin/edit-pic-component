@@ -1,9 +1,9 @@
 .editform-container{
   display: grid;
   grid-template-columns: [main] 200px [box1] 30px [box2] 30px [main-end];
-  grid-template-rows: [main] 30px [boxes] 250px [main-end];
+  grid-template-rows: [main] 30px [boxes] 145px [main-end];
   width: 260px;
-  height: 170px;
+  height: 175px;
 }
 
 .check-item{
