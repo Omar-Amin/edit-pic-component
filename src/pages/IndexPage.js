@@ -8,7 +8,8 @@ class IndexPage extends React.Component {
         super()
 
         this.state = {
-            isEditing: false
+            isEditing: false,
+            data: []
         }
 
         this.switchToEditing = this.switchToEditing.bind(this)
@@ -19,15 +20,17 @@ class IndexPage extends React.Component {
         this.setState({ isEditing: true })
     }
 
-    saveEdit() {
+    saveEdit(points) {
+        this.setState({ data: points })
+        console.log(points)
         this.setState({ isEditing: false })
     }
 
     render() {
-
+        const { data } = this.state
         return (
             <div>
-                {this.state.isEditing ? <EditPic saveEdit={this.saveEdit} /> : <ViewPic switchToEditing={this.switchToEditing} />}
+                {this.state.isEditing ? <EditPic data={data} saveEdit={this.saveEdit} /> : <ViewPic data={data} switchToEditing={this.switchToEditing} />}
             </div>
         )
     }

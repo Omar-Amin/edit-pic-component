@@ -1,21 +1,17 @@
 import React from "react"
 import './EditForms.css'
 
-class EditForm extends React.Component {
+class ViewForm extends React.Component {
     constructor() {
         super()
 
         this.state = {
-            isOpen: true,
+            isOpen: false,
             isSaved: false
         }
 
         this.closeForm = this.closeForm.bind(this)
         this.openForm = this.openForm.bind(this)
-        this.saveForm = this.saveForm.bind(this)
-        this.deleteForm = this.deleteForm.bind(this)
-        this.storeDescription = this.storeDescription.bind(this)
-        this.storeTitle = this.storeTitle.bind(this)
     }
 
     componentWillMount() {
@@ -27,18 +23,6 @@ class EditForm extends React.Component {
         })
     }
 
-    storeTitle(e) {
-        const title = e.target.value
-        this.setState({ title: title })
-        this.props.updatePointTitle(title, this.state.editKey)
-    }
-
-    storeDescription(e) {
-        const description = e.target.value
-        this.setState({ description: description })
-        this.props.updatePointDescription(description, this.state.editKey)
-    }
-
     closeForm() {
         this.setState({ isOpen: false, isSaved: true })
     }
@@ -47,16 +31,6 @@ class EditForm extends React.Component {
         this.setState({ isOpen: true })
     }
 
-    saveForm() {
-
-    }
-
-    deleteForm() {
-        this.props.deleteFromList(this.state.editKey)
-    }
-
-    // TODO: Add functionality to "save" and "delete"
-    // when pressing "close" it should autosave what's inside the component
     render() {
         const { isOpen, title, description } = this.state
 
@@ -72,28 +46,24 @@ class EditForm extends React.Component {
                         </div>
                     </div>}
 
-                {isOpen ?
-                    <div className="close-item" onClick={this.deleteForm}>
-                        <span className="close-span">&#10005;</span>
-                    </div> : null}
 
                 {isOpen ?
                     <div>
-                        <div className="edit-container">
+                        <div className="view-container">
                             <textarea
                                 maxLength="50"
                                 className="input-title-style"
                                 type="text" name="Title"
                                 placeholder="Title"
                                 value={title}
-                                onChange={this.storeTitle}></textarea>
+                                readOnly></textarea>
                             <textarea
                                 maxLength="220"
                                 className="input-description-style"
                                 type="text" name="Description"
                                 placeholder="Description"
                                 value={description}
-                                onChange={this.storeDescription}></textarea>
+                                readOnly></textarea>
                         </div>
                     </div> : null}
             </div>
@@ -101,4 +71,4 @@ class EditForm extends React.Component {
     }
 }
 
-export default EditForm
+export default ViewForm

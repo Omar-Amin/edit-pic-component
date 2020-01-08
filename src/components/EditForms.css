@@ -27,7 +27,6 @@
   grid-column-end: main-end;
   height: 28px;
   width: 28px;
-  background-color: #ffffff;
 }
 
 .close-span{
@@ -55,6 +54,15 @@
     width: 260px;
     height: 175px;
     background-color: #ffffff;
+}
+
+.view-container{
+  margin-top: 0px;
+  grid-row-start: boxes;
+  grid-row-end: main-end;
+  width: 260px;
+  height: 175px;
+  background-color: #ffffff;
 }
 
 .input-title-style{

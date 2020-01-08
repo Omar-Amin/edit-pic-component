@@ -16,10 +16,13 @@ class EditPic extends React.Component {
         this.deleteFromList = this.deleteFromList.bind(this)
         this.updatePointDescription = this.updatePointDescription.bind(this)
         this.updatePointTitle = this.updatePointTitle.bind(this)
+        this.saveEditForms = this.saveEditForms.bind(this)
     }
 
     componentWillMount() {
         document.addEventListener('mousedown', this.handleClickInsidePic);
+        const { data } = this.props
+        this.setState({ points: data })
 
     }
 
@@ -70,12 +73,16 @@ class EditPic extends React.Component {
         });
     }
 
+    saveEditForms() {
+        this.props.saveEdit(this.state.points)
+    }
+
     render() {
         const { points } = this.state
 
         return (
             <div className="container" ref="picContainer">
-                <button className="button-style" onClick={this.props.saveEdit}>Save</button>
+                <button className="button-style" onClick={this.saveEditForms}>Save</button>
                 <div onClick={this.addPoint}>
                     <img
                         ref={this.setWrapper}
@@ -92,6 +99,8 @@ class EditPic extends React.Component {
                                         deleteFromList={this.deleteFromList}
                                         updatePointDescription={this.updatePointDescription}
                                         updatePointTitle={this.updatePointTitle}
+                                        title={point.title}
+                                        description={point.description}
                                         editKey={point.id} />
                                 </div>
                             )
