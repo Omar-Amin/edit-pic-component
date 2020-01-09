@@ -40,6 +40,7 @@ class ViewPic extends React.Component {
                             </div>
                         )
                     }
+                    return null;
                 })}
             </div>
         )

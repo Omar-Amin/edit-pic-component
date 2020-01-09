@@ -105,6 +105,7 @@ class EditPic extends React.Component {
                                 </div>
                             )
                         }
+                        return null;
                     })}
                 </div>
 
