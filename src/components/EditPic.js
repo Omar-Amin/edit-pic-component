@@ -7,7 +7,8 @@ class EditPic extends React.Component {
         super()
 
         this.state = {
-            points: [] // {x:0, y:0}
+            points: [], // {x:0, y:0}
+            picture: ""
         }
 
         this.addPoint = this.addPoint.bind(this)
@@ -21,8 +22,8 @@ class EditPic extends React.Component {
 
     componentWillMount() {
         document.addEventListener('mousedown', this.handleClickInsidePic);
-        const { data } = this.props
-        this.setState({ points: data })
+        const { data, picture } = this.props
+        this.setState({ points: data, picture: picture })
 
     }
 
@@ -78,7 +79,7 @@ class EditPic extends React.Component {
     }
 
     render() {
-        const { points } = this.state
+        const { points, picture } = this.state
 
         return (
             <div className="container" ref="picContainer">
@@ -90,7 +91,7 @@ class EditPic extends React.Component {
                         onLoad={this.onImgLoad}
                         className="image-style"
                         draggable={false}
-                        src="https://cnet3.cbsistatic.com/img/sMJz61a5p3QEOwkK6aIT3R2skgw=/2019/08/15/5dda0e7e-8042-4317-9ee8-8256b04b5dda/samsung-galaxy-note-10-plus-13.jpg"></img>
+                        src={picture}></img>
                     {points.map((point) => {
                         if (point) {
                             return (

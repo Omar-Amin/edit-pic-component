@@ -7,18 +7,19 @@ class ViewPic extends React.Component {
         super()
 
         this.state = {
-            points: []
+            points: [],
+            picture: ""
         }
     }
 
     componentWillMount() {
-        const { data } = this.props
+        const { data, picture } = this.props
 
-        this.setState({ points: data })
+        this.setState({ points: data, picture: picture })
     }
 
     render() {
-        const { points } = this.state
+        const { points, picture } = this.state
 
         return (
             <div className="container">
@@ -27,7 +28,7 @@ class ViewPic extends React.Component {
                     alt="Item to be viewed"
                     className="image-style"
                     draggable={false}
-                    src="https://cnet3.cbsistatic.com/img/sMJz61a5p3QEOwkK6aIT3R2skgw=/2019/08/15/5dda0e7e-8042-4317-9ee8-8256b04b5dda/samsung-galaxy-note-10-plus-13.jpg"></img>
+                    src={picture}></img>
 
                 {points.map((point) => {
                     if (point) {
