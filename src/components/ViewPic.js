@@ -1,51 +1,69 @@
-import React from "react"
+import React from "react";
 import ViewForm from "./ViewForm";
-import './EditPic.css';
+import "./EditPic.css";
 
 class ViewPic extends React.Component {
     constructor() {
-        super()
+        super();
 
         this.state = {
             points: [],
-            picture: ""
-        }
+            picture: "",
+            editable: false
+        };
     }
 
     componentWillMount() {
-        const { data, picture } = this.props
+        const { data, picture, editable } = this.props;
 
-        this.setState({ points: data, picture: picture })
+        this.setState({ points: data, picture: picture, editable: editable });
     }
 
     render() {
-        const { points, picture } = this.state
+        const { points, picture, editable } = this.state;
 
         return (
             <div className="container">
-                <button className="button-style" onClick={this.props.switchToEditing}>Edit</button>
+                {editable ? (
+                    <button
+                        className="button-style"
+                        onClick={this.props.switchToEditing}
+                    >
+                        Edit
+                    </button>
+                ) : null}
+
                 <img
                     alt="Item to be viewed"
                     className="image-style"
                     draggable={false}
-                    src={picture}></img>
+                    src={picture}
+                ></img>
 
-                {points.map((point) => {
+                {points.map(point => {
                     if (point) {
                         return (
-                            <div key={point.id} style={{ position: "fixed", top: point.y, left: point.x }}>
+                            <div
+                                key={point.id}
+                                style={{
+                                    position: "fixed",
+                                    top: point.y,
+                                    left: point.x
+                                }}
+                            >
                                 <ViewForm
                                     title={point.title}
                                     description={point.description}
-                                    editKey={point.id} />
+                                    editKey={point.id}
+                                />
                             </div>
-                        )
+                        );
                     }
                     return null;
                 })}
             </div>
-        )
+        );
     }
 }
 
-export default ViewPic
+export default ViewPic;
