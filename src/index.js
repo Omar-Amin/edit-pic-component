@@ -3,6 +3,8 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import PicturePoint from "./pages/PicturePoint";
 
+// TODO: Change so that it takes "data" as argument
+// so users can add default data and set editable to false
 ReactDOM.render(
     <PicturePoint
         src_image={

@@ -32,7 +32,6 @@ class ViewPic extends React.Component {
                         Edit
                     </button>
                 ) : null}
-
                 <img
                     alt="Item to be viewed"
                     className="image-style"

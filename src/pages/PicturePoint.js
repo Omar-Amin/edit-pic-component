@@ -34,6 +34,9 @@ class PicturePoint extends React.Component {
         this.setState({ isEditing: false });
     }
 
+    // TODO: Change EditPic and ViewPic container so that it isn't grey
+    // it is only the picture that is visible when creating this component
+    // so the bottons should be inside the picture, and can be seen when hovering
     render() {
         const { data, picture, isEditing, editable } = this.state;
 
